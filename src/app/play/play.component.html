@@ -1,0 +1,53 @@
+<div style="text-align: center;">
+    <h2 [ngStyle]="{'color':utils.status === 1 ? 'blue' : 'red'}">{{ utils.message }}</h2>
+</div>
+
+<div style="text-align: center;">
+    <img [src]="imagePath" (load)="loaded()">
+</div>
+
+<div style=" text-align: right; margin: 0 auto;">
+    <table style="width: 500px;">
+        <tr>
+            <td>
+                <p style="color: green;">Random Secret Word</p>
+            </td>
+            <td>
+                <p style="color: green;">{{ hangman.displayedLettersList }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p style="color: red;">Already choosen letters</p>
+            </td>
+
+            <td>
+                <div>
+                    <p style="color: red;">{{ hangman.allChoosenLettersList }} </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p style="color: white;">Insert your word</p>
+            </td>
+            <td>
+                <input type="text" required mask="S{20}" [(ngModel)]="hangman.supposedWord" />
+            </td>
+            <td>
+                <input type="button" value="Submit word" (click)="proccessGame()" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p style="color: white; ">Insert your letter</p>
+            </td>
+            <td>
+                <input type="text" required mask="S{1}" [(ngModel)]="hangman.choosenLetter" style="width: 30px;" />
+            </td>
+            <td>
+                <input type="button" value="Submit letter" (click)="proccessGame()" />
+            </td>
+        </tr>
+    </table>
+</div>

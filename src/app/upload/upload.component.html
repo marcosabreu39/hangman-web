@@ -1,0 +1,6 @@
+<strong *ngIf="utils.message != null" [ngStyle]="{'color':utils.status === 1 ? 'green' : 'red'}" style="text-align: center; font-size: larger;">
+    <p>{{ utils.message }}</p>
+</strong>
+<div div fxLayout="row" fxLayoutAlign="end" mat-dialog-content>
+    <input mat-raised-button matTooltip="XML Import" class="FileButtons" type='file' accept='text/xml' (change)='openFile($event)' style="color: white;">
+</div>

@@ -1,0 +1,19 @@
+<strong *ngIf="utils.message != null" [ngStyle]="{'color':utils.status === 1 ? 'green' : 'red'}" style="text-align: center; font-size: larger;">
+  <p>{{ utils.message }}</p>
+</strong>
+
+<div style="overflow: auto; width: 640px; height: 200px; border:solid 1px">
+    <table style="color: white;">
+        <thead>
+            <th style="text-align: left;">Word</th>
+            <th>Index</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let word of hangmanWords;">
+
+                <td>{{word.keyWord}}</td>
+                <td>{{word.keyWordId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
