@@ -1,27 +1,50 @@
+# hangman-web
+Frontend of Hangman game application
 # HangmanWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
 
-## Development server
+## Steps for execute Hangman game locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clone this remository and hanman-backend repository;
 
-## Code scaffolding
+Run `npm install` to update its dependencies; 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Access `http://localhost:4200/hangman`;
 
-## Build
+You can upload a .xml file with new word to play (already have 3), these words inside your file should follow the bellow pattern:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`<hangman>
+			<word_list>
+				<word>ears</word>
+				<word>test</word>
+				<word>apple</word>
+				<word>coffee</word>
+				<word>keycombo</word>
+				<word>abcdefghijklmnopqrst</word>
+			</word_list>
+</hangman>
+`
+# Constraints of Hangman game application
 
-## Running unit tests
+Your words in xml file must be between 4 and 20 characters, including, otherwise will be removed;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If you put the same wrong letter, the game will consider another wrong letter.
 
-## Running end-to-end tests
+## Hangman application game demo:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+Update and watch updated files
+```
+<p align="center">
+  <img width="1600" src="https://github.com/marcosabreu39/hangman-web/blob/master/src/assets/demo/HangmanWeb-upload-viewing-xml.gif">
+</p>
 
-## Further help
+```
+Demo play Hangman
+```
+<p align="center">
+  <img width="2200" src="https://github.com/marcosabreu39/hangman_web_Angular_9_2021/blob/master/src/assets/demo/HangmanWeb-play-game.gif">
+</p>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
