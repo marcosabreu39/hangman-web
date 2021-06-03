@@ -37,7 +37,7 @@ Your words in xml file must be between 4 and 20 characters, including, otherwise
 
 If you put the same wrong letter, the game will consider another wrong letter;
 
-## Hangman application game demo:
+## Game play's demo of Hangman application
 
 ```
 Update and watch updated files
