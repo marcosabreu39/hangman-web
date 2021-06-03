@@ -1,10 +1,10 @@
 
-# HangmanWeb
+# Hangman-Web
 ## Frontend of Hangman game application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
 
-## Steps to execute Hangman game locally
+## Steps to execute Hangman-Web application locally
 
 Clone this remository and hanman-backend repository;
 
