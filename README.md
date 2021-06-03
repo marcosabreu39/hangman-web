@@ -35,7 +35,9 @@ You can upload a .xml file with new word to play (already have 3), these words i
 
 Your words in xml file must be between 4 and 20 characters, including, otherwise will be removed;
 
-If you put the same wrong letter, the game will consider another wrong letter.
+If you put the same wrong letter, the game will consider another wrong letter;
+
+You must put all your letters or words in lower case.
 
 ## Hangman application game demo:
 
