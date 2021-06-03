@@ -37,8 +37,6 @@ Your words in xml file must be between 4 and 20 characters, including, otherwise
 
 If you put the same wrong letter, the game will consider another wrong letter;
 
-You must put all your letters or words in lower case.
-
 ## Hangman application game demo:
 
 ```
