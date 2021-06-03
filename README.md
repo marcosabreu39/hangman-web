@@ -4,7 +4,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
 
-## Steps for execute Hangman game locally
+## Steps to execute Hangman game locally
 
 Clone this remository and hanman-backend repository;
 
