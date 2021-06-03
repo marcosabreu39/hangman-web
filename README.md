@@ -8,6 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Clone this remository and hanman-backend repository;
 
+Use your prefered Angular IDE (I prefer vscode);
+
 Run `npm install` to update its dependencies; 
 
 Run `npm start` to deploy the application;
