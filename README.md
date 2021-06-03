@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Steps to execute Hangman-Web application locally
 
-Clone this remository and hanman-backend repository;
+Clone this repository and hanman-backend repository;
 
 Use your prefered Angular IDE (I prefer vscode);
 
