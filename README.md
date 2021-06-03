@@ -37,17 +37,17 @@ Your words in xml file must be between 4 and 20 characters, including, otherwise
 
 If you put the same wrong letter, the game will consider another wrong letter;
 
-## Game play's demo of Hangman application
+## Hangman application's demo
 
 ```
-Update and watch updated files
+Updating and watching updated files
 ```
 <p align="center">
   <img width="1600" src="https://github.com/marcosabreu39/hangman-web/blob/master/src/assets/demo/HangmanWeb-upload-viewing-xml.gif">
 </p>
 
 ```
-Demo play Hangman
+ Game play's demo of Hangman application
 ```
 <p align="center">
   <img width="2200" src="https://github.com/marcosabreu39/hangman_web_Angular_9_2021/blob/master/src/assets/demo/HangmanWeb-play-game.gif">
