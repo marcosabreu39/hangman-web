@@ -45,7 +45,7 @@ export class PlayComponent implements OnInit {
 
   getWord(): void {
     this.hangman.updateImage = 1;
-    this.imgIndex = "7";
+    this.imgIndex = "6";
     this.playService.getWord().subscribe(success => {
       this.hangman = success.body;
       this.utils.message = "Game started!";
@@ -76,7 +76,18 @@ export class PlayComponent implements OnInit {
     this.loaded();
   }
 
-  proccessGame() {
+  setToLowerCase(hangman: Hangman): void{
+    if(hangman.chosenLetter !== undefined){
+      this.hangman.chosenLetter = this.hangman.chosenLetter.toLowerCase();
+    }
+
+    if(hangman.supposedWord !== undefined){
+      hangman.supposedWord = this.hangman.supposedWord.toLowerCase();
+    }
+  }
+
+  processGame() {
+    this.setToLowerCase(this.hangman);
     this.hangman.updateImage = 1;
     if (this.gameNotEnded(this.hangman)) {
       this.playService.processGame(this.hangman).subscribe(success => {
@@ -101,5 +112,4 @@ export class PlayComponent implements OnInit {
       })
     }
   }
-
 }
