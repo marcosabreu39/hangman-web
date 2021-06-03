@@ -18,12 +18,12 @@
         </tr>
         <tr>
             <td>
-                <p style="color: red;">Already choosen letters</p>
+                <p style="color: red;">Already chosen letters</p>
             </td>
 
             <td>
                 <div>
-                    <p style="color: red;">{{ hangman.allChoosenLettersList }} </p>
+                    <p style="color: red;">{{ hangman.allChosenLettersList }} </p>
                 </div>
             </td>
         </tr>
@@ -43,7 +43,7 @@
                 <p style="color: white; ">Insert your letter</p>
             </td>
             <td>
-                <input type="text" required mask="S{1}" [(ngModel)]="hangman.choosenLetter" style="width: 30px;" />
+                <input type="text" required mask="S{1}" [(ngModel)]="hangman.chosenLetter" style="width: 30px;" />
             </td>
             <td>
                 <input type="button" value="Submit letter" (click)="proccessGame()" />

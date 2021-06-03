@@ -11,7 +11,7 @@ export class AppComponent {
   constructor() { }
 
   refresh(): void {
-    window.location.reload();
+    location.reload();
   }
 
 }

@@ -60,7 +60,9 @@ export class PlayComponent implements OnInit {
   }
 
   gameNotEnded(hangman: Hangman): boolean{
-    if((hangman.supposedWord !== undefined || hangman.choosenLetter !== undefined) && hangman.statusGame != 3){
+    if((hangman.supposedWord !== undefined ||
+      hangman.chosenLetter !== undefined) &&
+      hangman.statusGame != 3){
       return true;
     } else {
       return false;
@@ -68,7 +70,9 @@ export class PlayComponent implements OnInit {
   }
 
   endGame(): void{
-    this.hangman.gameCounter = 1;
+    if(this.hangman.statusGame == 3){
+    this.hangman.gameCounter = 0;
+  }
     this.loaded();
   }
 
@@ -88,6 +92,7 @@ export class PlayComponent implements OnInit {
           this.disabledInput = true;
         } else {
           this.utils.message = "Please, insert your next letter!";
+          this.loaded();
         }
       }, fail => {
         this.utils.message = "Internal error occurred, contact the system administrator!";
