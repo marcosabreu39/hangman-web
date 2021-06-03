@@ -10,6 +10,10 @@ Clone this remository and hanman-backend repository;
 
 Run `npm install` to update its dependencies; 
 
+Run `npm start` to deploy the application;
+
+Follow the steps of Hangman-Backend `README.md`;
+
 Access `http://localhost:4200/hangman`;
 
 You can upload a .xml file with new word to play (already have 3), these words inside your file should follow the bellow pattern:
