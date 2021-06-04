@@ -47,7 +47,7 @@ Updating and watching updated files
 </p>
 
 ```
- Game play's demo of Hangman application
+ Game play demo of Hangman application
 ```
 <p align="center">
   <img width="2200" src="https://github.com/marcosabreu39/hangman_web_Angular_9_2021/blob/master/src/assets/demo/HangmanWeb-play-game.gif">
