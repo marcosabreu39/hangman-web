@@ -31,7 +31,7 @@ You can upload a .xml file with new word to play (already have 3), these words i
 ###### `</word_list>`
 ###### `</hangman>`
 
-##Constraints of Hangman game application
+## Constraints of Hangman game application
 
 Your words in xml file must be between 4 and 20 characters, including, otherwise will be removed;
 
