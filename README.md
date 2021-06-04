@@ -16,7 +16,7 @@ Run `npm start` to deploy the application;
 
 Follow the steps of Hangman-Backend `README.md`;
 
-Access ## `http://localhost:4200/hangman`;
+Access `http://localhost:4200/hangman`
 
 You can upload a .xml file with new word to play (already have 3), these words inside your file should follow the pattern bellow:
 
