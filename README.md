@@ -21,14 +21,14 @@ Access `http://localhost:4200/hangman`;
 You can upload a .xml file with new word to play (already have 3), these words inside your file should follow the bellow pattern:
 
 ###### `<hangman>`
-######			`<word_list>`
-######				`<word>ears</word>`
-######				`<word>test</word>`
-######				`<word>apple</word>`
-######			  `<word>coffee</word>`
-######				`<word>keycombo</word>`
-######			  `<word>abcdefghijklmnopqrst</word>`
-######			`</word_list>`
+  ###### `<word_list>`
+    ###### `<word>ears</word>`
+    ###### `<word>test</word>`
+    ###### `<word>apple</word>`
+    ###### `<word>coffee</word>`
+    ###### `<word>keycombo</word>`
+    ###### `<word>abcdefghijklmnopqrst</word>`
+  ###### `</word_list>`
 ###### `</hangman>`
 
 ##Constraints of Hangman game application
