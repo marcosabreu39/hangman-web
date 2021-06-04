@@ -20,7 +20,7 @@ Access `http://localhost:4200/hangman`;
 
 You can upload a .xml file with new word to play (already have 3), these words inside your file should follow the bellow pattern:
 
-#### `<hangman>`
+##### `<hangman>`
 ####			`<word_list>`
 ####				`<word>ears</word>`
 ####				`<word>test</word>`
