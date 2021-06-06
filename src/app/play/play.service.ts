@@ -14,8 +14,8 @@ export class PlayService {
 
   /**
    * Obtains a random word from database
-   * 
-   * @returns 
+   *
+   * @returns
    */
   public getWord(): Observable<HttpResponse<any>> {
     let url = this.baseURL + "/word";
@@ -24,11 +24,19 @@ export class PlayService {
 
   /**
    * Proccess Hangman game requisition
-   * 
-   * @param hangman 
-   * @returns 
+   *
+   * @param hangman
+   * @returns
    */
-  public processGame(hangman: Hangman): Observable<any> {
+  public processChosenLetter(hangman: Hangman): Observable<any> {
+    let url = this.baseURL + "/letter";
+    let body = JSON.stringify(hangman);
+    let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let httpOptions: any = { headers: headers, observe: "response" };
+    return this.http.post<any>(url, body, httpOptions);
+  }
+
+  public processSupposedWord(hangman: Hangman): Observable<any> {
     let url = this.baseURL + "/word";
     let body = JSON.stringify(hangman);
     let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });

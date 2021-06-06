@@ -16,7 +16,7 @@ export class PlayComponent implements OnInit {
 
  private prefix: string = "assets/img/hangman-";
 
- public imgIndex: string = "7";
+ public imgIndex: string = "6";
 
  private suffix: string = ".png";
 
@@ -25,6 +25,8 @@ export class PlayComponent implements OnInit {
   public hangman: Hangman = new Hangman();
 
   public disabledInput: boolean = false;
+
+  private invalidImgIndex: number = 7;
 
   imgVisible = true;
 
@@ -35,7 +37,7 @@ export class PlayComponent implements OnInit {
   }
 
   loaded(): void {
-    if (this.hangman.gameCounter < 7 && this.hangman.updateImage == 2) {
+    if (this.hangman.gameCounter < this.invalidImgIndex && this.hangman.updateImage == 2) {
       this.imgVisible = false;
       this.imgIndex = this.hangman.gameCounter.toString();
       this.imgVisible = true;
@@ -69,46 +71,71 @@ export class PlayComponent implements OnInit {
     }
   }
 
-  endGame(): void{
+  endGame(hangman: Hangman): void{
     if(this.hangman.statusGame == 3){
     this.hangman.gameCounter = 0;
   }
     this.loaded();
   }
 
-  setToLowerCase(hangman: Hangman): void{
+  setChosenLetterToLowerCase(hangman: Hangman): void{
     if(hangman.chosenLetter !== undefined){
       this.hangman.chosenLetter = this.hangman.chosenLetter.toLowerCase();
     }
+  }
 
+  setSupposedWordToLowerCase(hangman: Hangman): void{
     if(hangman.supposedWord !== undefined){
       hangman.supposedWord = this.hangman.supposedWord.toLowerCase();
     }
   }
 
-  processGame() {
-    this.setToLowerCase(this.hangman);
-    this.hangman.updateImage = 1;
-    if (this.gameNotEnded(this.hangman)) {
-      this.playService.processGame(this.hangman).subscribe(success => {
-        this.hangman = success.body;
-        console.log(success.status);
-        if (this.hangman.statusGame == 2) {
-          this.endGame()
-          this.utils.message = "You win!!! push 'Play Hangman' to play again!!!'";
-          this.disabledInput = true;
-        } else if (this.hangman.statusGame == 3) {
-          this.endGame()
-          this.utils.message = "You loose!!! push 'Play Hangman' to play again!!!";
-          this.disabledInput = true;
-        } else {
-          this.utils.message = "Please, insert your next letter!";
-          this.loaded();
-        }
-      }, fail => {
-        this.utils.message = "Internal error occurred, contact the system administrator!";
+  proccessGameConclusion(hangman: Hangman): void{
+    if (hangman.statusGame == 2) {
+      this.endGame(hangman);
+      this.utils.message = "You win!!! push 'Play Hangman' to play again!!!'";
+      this.disabledInput = true;
+    } else if (this.hangman.statusGame == 3) {
+      this.endGame(hangman);
+      this.utils.message = "You loose!!! push 'Play Hangman' to play again!!!";
+      this.disabledInput = true;
+    } else {
+      this.utils.message = "Please, insert your next letter!";
+      this.loaded();
+    }
+  }
+
+  processGameError(fail: any): void{
+    this.utils.message = "Internal error occurred, contact the system administrator!";
         this.disabledInput = true;
         console.log(fail.status);
+  }
+
+  processChosenLetter(): void {
+    this.setChosenLetterToLowerCase(this.hangman);
+    this.hangman.updateImage = 1;
+    if (this.gameNotEnded(this.hangman)) {
+      this.playService.processChosenLetter(this.hangman).subscribe(success => {
+        this.hangman = success.body;
+        console.log(success.status);
+        this.proccessGameConclusion(this.hangman);
+
+      }, fail => {
+        this.processGameError(fail);
+      })
+    }
+  }
+  processSupposedWord(): void {
+    this.setSupposedWordToLowerCase(this.hangman);
+    this.hangman.updateImage = 1;
+    if (this.gameNotEnded(this.hangman)) {
+      this.playService. processSupposedWord(this.hangman).subscribe(success => {
+        this.hangman = success.body;
+        console.log(success.status);
+        this.proccessGameConclusion(this.hangman);
+
+      }, fail => {
+        this.processGameError(fail);
       })
     }
   }

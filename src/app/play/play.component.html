@@ -35,7 +35,7 @@
                 <input type="text" required mask="S{20}" [(ngModel)]="hangman.supposedWord" />
             </td>
             <td>
-                <input type="button" value="Submit word" (click)="processGame()" />
+                <input type="button" value="Submit word" (click)="processSupposedWord()" />
             </td>
         </tr>
         <tr>
@@ -46,7 +46,7 @@
                 <input type="text" required mask="S{1}" [(ngModel)]="hangman.chosenLetter" style="width: 30px;" />
             </td>
             <td>
-                <input type="button" value="Submit letter" (click)="processGame()" />
+                <input type="button" value="Submit letter" (click)="processChosenLetter()" />
             </td>
         </tr>
     </table>
