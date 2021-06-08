@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 /**
  * Manages XML file's upload
- * 
+ *
  * @Author Marcos Abreu
  */
 

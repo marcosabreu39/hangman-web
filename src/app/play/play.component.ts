@@ -1,11 +1,15 @@
 import { Hangman } from './../model/hangman.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { PlayService } from './play.service';
 import { Utils } from '../utils/utils';
 
 /**
  *  @Author Marcos Abreu
  */
+
+ @Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-play',
@@ -14,26 +18,38 @@ import { Utils } from '../utils/utils';
 })
 export class PlayComponent implements OnInit {
 
- private prefix: string = "assets/img/hangman-";
+ private  prefix: string;
 
- public imgIndex: string = "6";
+ public   imgIndex: string;
 
- private suffix: string = ".png";
+ private  suffix: string;
 
-  public imagePath: string = this.prefix + this.imgIndex + this.suffix;
+ public  imagePath: string;
 
-  public hangman: Hangman = new Hangman();
+ public  hangman: Hangman;
 
-  public disabledInput: boolean = false;
+ public  disabledInput: boolean;
 
-  private invalidImgIndex: number = 7;
+ private invalidImgIndex: number;
 
-  imgVisible = true;
+  imgVisible: boolean;
 
   constructor(public playService: PlayService, public utils: Utils) { }
 
   ngOnInit(): void {
+    this.init();
     this.getWord();
+  }
+
+  init():void{
+   this.prefix = "assets/img/hangman-";
+   this.imgIndex = "6";
+   this.suffix = ".png";
+   this.imagePath = this.prefix + this.imgIndex + this.suffix;
+   this.hangman = new Hangman();
+   this.disabledInput = false;
+   this.invalidImgIndex = 7;
+   this.hangman.updateImage = 1;
   }
 
   loaded(): void {
@@ -46,8 +62,6 @@ export class PlayComponent implements OnInit {
   }
 
   getWord(): void {
-    this.hangman.updateImage = 1;
-    this.imgIndex = "6";
     this.playService.getWord().subscribe(success => {
       this.hangman = success.body;
       this.utils.message = "Game started!";

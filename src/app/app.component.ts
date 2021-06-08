@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { PlayComponent } from './play/play.component';
+import { PlayService } from './play/play.service';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild('contentPlaceholder', { static: false }) contentPlaceholder: ElementRef;
+
+  display = false;
+
   title = 'Hangman-Web';
 
   constructor() { }
@@ -13,6 +20,12 @@ export class AppComponent {
   refresh(): void {
     location.reload();
   }
+
+  /* refresh() {
+    this.display = true;
+    this.changeDetectorRef.detectChanges();
+    console.log(this.contentPlaceholder);
+} */
 
 }
 
